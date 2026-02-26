@@ -1,78 +1,278 @@
-/* Reset default styles and apply basic styling */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
+/* ============================================
+   CSS Custom Properties (Design Tokens)
+   ============================================ */
+:root {
+  --color-dark: #333;
+  --color-text: #333;
+  --color-text-light: #666;
+  --color-white: #fff;
+  --color-bg: #f5f5f5;
+  --color-bg-content: #fff;
+  --font-family: Arial, sans-serif;
+  --max-width: 960px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
 }
 
-/* Header styles */
+/* ============================================
+   Reset & Base Styles
+   ============================================ */
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+}
+
+/* ============================================
+   Header Styles
+   ============================================ */
 header {
-  background-color: #fff;
-  padding: 20px;
+  background-color: var(--color-bg-content);
+  padding: var(--spacing-md);
   text-align: center;
 }
 
 h1 {
-  color: #333;
+  color: var(--color-text);
   margin: 0;
 }
 
-/* Navigation styles */
+/* ============================================
+   Navigation Styles
+   ============================================ */
 nav {
-  background-color: #333;
-  padding: 10px;
+  background-color: var(--color-dark);
+  padding: var(--spacing-sm);
 }
 
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-nav ul li {
-  display: inline;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
 }
 
 nav ul li a {
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
-  padding: 10px;
+  padding: var(--spacing-sm);
+  display: inline-block;
+  border-radius: 4px;
+  transition: background-color 0.2s;
 }
 
-/* Main content styles */
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+nav ul li a:focus {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Main Content Styles
+   ============================================ */
 main {
-  max-width: 960px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
+  max-width: var(--max-width);
+  margin: var(--spacing-md) auto;
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-content);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-  color: #333;
+  color: var(--color-text);
 }
 
 p {
-  color: #666;
+  color: var(--color-text-light);
   line-height: 1.5;
 }
 
-/* Footer styles */
+/* ============================================
+   Footer Styles
+   ============================================ */
 footer {
-  background-color: #333;
-  padding: 20px;
+  background-color: var(--color-dark);
+  padding: var(--spacing-md);
   text-align: center;
 }
 
 footer p {
-  color: #fff;
+  color: var(--color-white);
   margin: 0;
 }
 
+/* ============================================
+   Animal Gallery
+   ============================================ */
 .animal-image {
   width: 300px;
   height: 200px;
   object-fit: cover;
 }
 
+/* ============================================
+   Banner (consolidated from inline styles)
+   ============================================ */
+#banner {
+  text-align: center;
+}
+
+#banner img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================
+   Product Image Grid (consolidated from inline styles)
+   ============================================ */
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+.image-item {
+  width: 200px;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.image-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-item p {
+  margin-top: var(--spacing-sm);
+}
+
+/* ============================================
+   Online Store Components (previously undefined)
+   ============================================ */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.product {
+  flex: 1 1 280px;
+  max-width: 400px;
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-bg);
+  border-radius: 4px;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+
+.price {
+  font-weight: bold;
+  color: var(--color-text);
+  font-size: 1.1em;
+}
+
+.buy-now {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.buy-now:hover {
+  background-color: #555;
+}
+
+.buy-now:focus {
+  outline: 2px solid var(--color-dark);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Testimonials (previously undefined)
+   ============================================ */
+.testimonial {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-left: 3px solid var(--color-dark);
+  background-color: var(--color-bg);
+}
+
+/* ============================================
+   Media Highlights (previously undefined)
+   ============================================ */
+.media-highlight {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-left: 3px solid var(--color-text-light);
+  background-color: var(--color-bg);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 768px) {
+  main {
+    margin: var(--spacing-sm) auto;
+    padding: var(--spacing-sm);
+  }
+
+  .product {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  .image-item {
+    width: 150px;
+  }
+
+  .animal-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: var(--spacing-sm);
+  }
+
+  h1 {
+    font-size: 1.4em;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 8px;
+  }
+
+  .image-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-item {
+    width: 100%;
+    max-width: 250px;
+  }
+}
